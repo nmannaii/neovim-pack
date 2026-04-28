@@ -193,10 +193,6 @@
       "rev": "cb75908a86720172594b30de147272c1b3a7f452",
       "src": "https://github.com/NvChad/ui"
     },
-    "vim-fugitive": {
-      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
-      "src": "https://github.com/tpope/vim-fugitive"
-    },
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
@@ -204,10 +200,6 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
-    },
-    "yanky.nvim": {
-      "rev": "784188e0a7363e762e53140f39124d786aec0832",
-      "src": "https://github.com/gbprod/yanky.nvim"
     }
   }
 }
