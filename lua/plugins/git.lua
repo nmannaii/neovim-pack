@@ -1,38 +1,4 @@
---- start => fugitive
-local function map(mode, l, r, desc)
-	vim.keymap.set(mode, l, r, { desc = desc })
-end
-
-vim.keymap.set("n", "<leader>gg", "<cmd>tab G<cr>", { desc = "Fugitive fullscreen tab" })
-
-local myFugitive = vim.api.nvim_create_augroup("myFugitive", {})
-
-local autocmd = vim.api.nvim_create_autocmd
-autocmd("BufWinEnter", {
-	group = myFugitive,
-	pattern = "*",
-	callback = function()
-		if vim.bo.ft ~= "fugitive" then
-			return
-		end
-
-		local bufnr = vim.api.nvim_get_current_buf()
-		local opts = { buffer = bufnr, remap = false }
-
-		vim.keymap.set("n", "<leader>P", function()
-			vim.cmd.Git("push")
-		end, opts)
-
-		-- NOTE: rebase always
-		vim.keymap.set("n", "<leader>p", function()
-			vim.cmd.Git({ "pull", "--rebase" })
-		end, opts)
-
-		-- NOTE: easy set up branch that wasn't setup properly
-		vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
-	end,
-})
---- end => fugitive
+local map = vim.keymap.set
 
 --- start => gitsigns
 local gs = require("gitsigns")
@@ -87,38 +53,37 @@ gs.setup({
 	},
 })
 -- Navigation
-map("n", "]h", gs.nav_hunk('next'), "Next Hunk")
-map("n", "[h", gs.nav_hunk('prev'), "Prev Hunk")
+map("n", "]h", gs.next_hunk, { desc = "Next Hunk" })
+map("n", "[h", gs.prev_hunk, { desc = "Prev Hunk" })
 
 -- Actions
-map("n", "<leader>gs", gs.stage_hunk, "Stage hunk")
-map("n", "<leader>gr", gs.reset_hunk, "Reset hunk")
+map("n", "<leader>gs", gs.stage_hunk, { desc = "Stage hunk" })
+map("n", "<leader>gr", gs.reset_hunk, { desc = "Reset hunk" })
 
 map("v", "<leader>gs", function() -- stage selected hunk
 	gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-end, "Stage hunk")
+end, { desc = "Stage hunk" })
 map("v", "<leader>gr", function() -- reset selected hunk
 	gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-end, "Reset hunk")
+end, { desc = "Reset hunk" })
 
-map("n", "<leader>gS", gs.stage_buffer, "Stage buffer") -- stage whole buffer
-map("n", "<leader>gR", gs.reset_buffer, "Reset buffer") -- unstage whole buffer
-map("n", "<leader>gu", gs.undo_stage_hunk, "Undo stage hunk")
-map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
+map("n", "<leader>gS", gs.stage_buffer, { desc = "Stage buffer" }) -- stage whole buffer
+map("n", "<leader>gR", gs.reset_buffer, { desc = "Reset buffer" }) -- unstage whole buffer
+map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "Undo stage hunk" })
+map("n", "<leader>gp", gs.preview_hunk, { desc = "Preview hunk" })
 map("n", "<leader>gbl", function()
 	gs.blame_line({ full = true })
-end, "Blame line")
-map("n", "<leader>gB", gs.toggle_current_line_blame, "Toggle line blame")
-map("n", "<leader>gd", gs.diffthis, "Diff this")
+end, { desc = "Blame line" })
+map("n", "<leader>gB", gs.toggle_current_line_blame, { desc = "Toggle line blame" })
+map("n", "<leader>gd", gs.diffthis, { desc = "Diff this" })
 map("n", "<leader>gD", function()
 	gs.diffthis("~")
-end, "Diff this ~")
+end, { desc = "Diff this ~" })
 
 -- Text object
-map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
+map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Gitsigns select hunk" })
 
 --- end => gitsigns
 
-
 --- start => lazygit
-map({"n"}, "<leader>lg", "<cmd>LazyGit<cr>", "Open lazy git")
+map({ "n" }, "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open lazy git" })

@@ -40,7 +40,6 @@ vim.pack.add({
 	"https://github.com/folke/which-key.nvim",
 	"https://github.com/folke/snacks.nvim",
 	"https://github.com/windwp/nvim-autopairs",
-	"https://github.com/tpope/vim-fugitive",
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/kdheepak/lazygit.nvim",
 	"https://github.com/ThePrimeagen/git-worktree.nvim",
