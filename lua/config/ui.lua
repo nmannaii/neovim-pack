@@ -77,3 +77,71 @@ require("lualine").setup({
 })
 
 require("scope").setup({})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		local opts = {
+			theme = "doom",
+			hide = {
+				statusline = false,
+			},
+			config = {
+				vertical_center = true,
+				header = {
+					"*************************************",
+					"*   ███████╗   ███████╗   ██████╗   *",
+					"*   ╚══███╔╝   ██╔════╝   ██╔══██╗  *",
+					"*     ███╔╝    █████╗     ██║  ██║  *",
+					"*    ███╔╝     ██╔══╝     ██║  ██║  *",
+					"*   ███████╗██╗███████╗██╗██████╔╝  *",
+					"*   ╚══════╝╚═╝╚══════╝╚═╝╚═════╝   *",
+					"*************************************",
+          "",
+          "",
+          "",
+				},
+				center = {
+					{
+						action = "Telescope find_files",
+						desc = " Find File",
+						icon = " ",
+						key = "f",
+					},
+					{
+						action = "ene | startinsert",
+						desc = " New File",
+						icon = " ",
+						key = "n",
+					},
+					{
+						action = "Telescope grep_text",
+						desc = " Find Text",
+						icon = " ",
+						key = "g",
+					},
+					{
+						action = 'lua require("persistence").load()',
+						desc = " Restore Session",
+						icon = " ",
+						key = "s",
+					},
+					{
+						action = function()
+							vim.api.nvim_input("<cmd>qa<cr>")
+						end,
+						desc = " Quit",
+						icon = " ",
+						key = "q",
+					},
+				},
+			},
+		}
+
+		for _, button in ipairs(opts.config.center) do
+			button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+			button.key_format = "  %s"
+		end
+
+		require("dashboard").setup(opts)
+	end,
+})

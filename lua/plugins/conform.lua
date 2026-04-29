@@ -2,7 +2,7 @@ require("conform").setup({
 	formatters_by_ft = {
 		html = { "html-beautify-custom" },
 		htmlangular = { "htmlangular-beautify-custom" },
-		cs = { "csharpier" },
+		cs = { lsp_format = "fallback" },
 		lua = { "stylua" },
 	},
 	formatters = {
