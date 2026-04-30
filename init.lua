@@ -53,10 +53,10 @@ vim.pack.add({
 	"https://github.com/tiagovla/scope.nvim",
 	"https://github.com/folke/noice.nvim",
 	"https://github.com/nvimdev/dashboard-nvim",
-  "https://github.com/neogitorg/neogit",
   "https://github.com/m00qek/baleia.nvim",
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/iamcco/markdown-preview.nvim",
+  "https://github.com/mistricky/codesnap.nvim",
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
 
@@ -86,3 +86,4 @@ require("plugins.git")
 require("plugins.claudecode")
 require("plugins.lint")
 require("plugins.markdown")
+require("plugins.codesnap")

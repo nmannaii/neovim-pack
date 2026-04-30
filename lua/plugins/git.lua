@@ -86,4 +86,4 @@ map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Gitsigns sel
 --- end => gitsigns
 
 --- start => lazygit
-map({ "n" }, "<leader>gg", "<cmd>Neogit<cr>", { desc = "Open lazy git" })
+map({ "n" }, "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open lazy git" })
