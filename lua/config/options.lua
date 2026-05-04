@@ -70,3 +70,10 @@ vim.g.markdown_recommended_style = 0
 
 -- Color scheme
 vim.cmd("colorscheme catppuccin-nvim")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "nvim-pack",
+  callback = function()
+    vim.bo.filetype = "markdown"
+  end,
+})

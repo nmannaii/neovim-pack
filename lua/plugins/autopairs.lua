@@ -7,6 +7,7 @@ autopairs.setup({
 		lua = { "string" }, -- dont add pairs in lua string treesitter nodes
 	},
 })
+
 -- import nvim-autopairs completion functionality
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 -- import nvim-cmp plugin (completions plugin)
