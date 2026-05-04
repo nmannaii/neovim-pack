@@ -58,6 +58,7 @@ vim.pack.add({
 	"https://github.com/mistricky/codesnap.nvim",
 	"https://github.com/ahmedkhalf/project.nvim",
   "https://github.com/windwp/nvim-ts-autotag",
+  "https://github.com/folke/todo-comments.nvim",
 	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("4.x") },
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
