@@ -75,8 +75,8 @@ map("n", "<leader>gbl", function()
 	gs.blame_line({ full = true })
 end, { desc = "Blame line" })
 map("n", "<leader>gB", gs.toggle_current_line_blame, { desc = "Toggle line blame" })
-map("n", "<leader>gd", gs.diffthis, { desc = "Diff this" })
-map("n", "<leader>gD", function()
+map("n", "<leader>gD", gs.diffthis, { desc = "Diff this" })
+map("n", "<leader>gd", function()
 	gs.diffthis("~")
 end, { desc = "Diff this ~" })
 
@@ -86,4 +86,17 @@ map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Gitsigns sel
 --- end => gitsigns
 
 --- start => lazygit
-map({ "n" }, "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open lazy git" })
+map({ "n" }, "<leader>gg", function()
+	vim.fn.jobstart({
+		"tmux",
+		"display-popup",
+		"-d",
+		"#{pane_current_path}",
+		"-w",
+		"95%",
+		"-h",
+		"95%",
+		"-E",
+		"lazygit",
+	})
+end, { desc = "Open lazy git" })
