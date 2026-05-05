@@ -4,6 +4,7 @@ require("conform").setup({
 		htmlangular = { "htmlangular-beautify-custom" },
 		cs = { lsp_format = "fallback" },
 		lua = { "stylua" },
+		typescript = { lsp_format = "fallback" },
 	},
 	formatters = {
 		["html-beautify-custom"] = {

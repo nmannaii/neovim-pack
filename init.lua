@@ -59,6 +59,7 @@ vim.pack.add({
 	"https://github.com/ahmedkhalf/project.nvim",
   "https://github.com/windwp/nvim-ts-autotag",
   "https://github.com/folke/todo-comments.nvim",
+  "https://github.com/folke/flash.nvim",
 	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("4.x") },
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
@@ -90,4 +91,5 @@ require("plugins.claudecode")
 require("plugins.lint")
 require("plugins.markdown")
 require("plugins.codesnap")
+require("plugins.flash")
 require("config.notes").setup()
