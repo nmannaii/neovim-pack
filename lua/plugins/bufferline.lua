@@ -3,7 +3,19 @@ if not ok then
 	return
 end
 
+local macchiato = require("catppuccin.palettes").get_palette "macchiato"
 bufferline.setup({
+	highlights = require("catppuccin.special.bufferline").get_theme({
+		styles = { "italic", "bold" },
+		custom = {
+			all = {
+				fill = { bg = macchiato.none },
+			},
+			macchiato = {
+				background = { fg = macchiato.text },
+			},
+		},
+	}),
 	options = {
 		mode = "buffers",
 		numbers = "none",
@@ -27,7 +39,7 @@ bufferline.setup({
 			return " " .. icon .. count
 		end,
 		show_tab_indicators = true,
-		separator_style = "slant",
+		separator_style = {'', ''},
 		offsets = {
 			{
 				filetype = "neo-tree",
@@ -35,6 +47,9 @@ bufferline.setup({
 				text_align = "left",
 				highlight = "Directory",
 				separator = true,
+			},
+			{
+				filetype = "snacks_layout_box",
 			},
 		},
 	},

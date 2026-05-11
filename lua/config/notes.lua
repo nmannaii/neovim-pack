@@ -36,15 +36,15 @@ end
 
 -- Find notes (Telescope)
 function M.find()
-  require("telescope.builtin").find_files({
+  Snacks.picker.files({
     cwd = notes_dir,
-    prompt_title = "Notes",
+    prompt = "Notes",
   })
 end
 
 -- Search notes (content)
 function M.search()
-  require("telescope.builtin").live_grep({
+  Snacks.picker.grep({
     cwd = notes_dir,
     prompt_title = "Search Notes",
   })

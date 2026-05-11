@@ -67,9 +67,9 @@ opt.wrap = false
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+-- use Neovim nightly branch
+vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:'
 
--- Color scheme
-vim.cmd("colorscheme catppuccin-nvim")
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "nvim-pack",

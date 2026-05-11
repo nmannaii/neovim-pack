@@ -18,34 +18,41 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set("n", keys, fn, { buffer = args.buf, desc = "LSP: " .. desc })
 		end
 
-		map("gd", function()
-			require("telescope.builtin").lsp_definitions({ reuse_win = true })
-		end, "Go to definition")
-
-		map("gD", vim.lsp.buf.declaration, "Go to declaration")
-		map("gr", "<cmd>Telescope lsp_references<cr>", "References")
-		map("gi", function()
-			require("telescope.builtin").lsp_implementations({ reuse_win = true })
-		end, "Goto Implementation")
-
-		map("gy", function()
-			require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-		end, "Goto T[y]pe Definition")
-
 		map("K", vim.lsp.buf.hover, "Hover docs")
 		map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
-		map("<leader>ca", vim.lsp.buf.code_action, "Code action")
 		map("<leader>cd", vim.diagnostic.open_float, "Line diagnostics")
 		map("[d", vim.diagnostic.goto_prev, "Prev diagnostic")
 		map("]d", vim.diagnostic.goto_next, "Next diagnostic")
+
+		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+		map("<leader>ca", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+		map("gr", function()
+			require("snacks").picker.lsp_references()
+		end, "[G]oto [R]eferences")
+		map("gi", function()
+			require("snacks").picker.lsp_implementations()
+		end, "[G]oto [I]mplementation")
+		map("gd", function()
+			require("snacks").picker.lsp_definitions()
+		end, "[G]oto [D]efinition")
+		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+		map("gO", function()
+			require("snacks").picker.lsp_symbols()
+		end, "Open Document Symbols")
+		map("gW", function()
+			require("snacks").picker.lsp_workspace_symbols()
+		end, "Open Workspace Symbols")
+		map("gt", function()
+			require("snacks").picker.lsp_type_definitions()
+		end, "[G]oto [T]ype Definition")
 	end,
 })
 
 vim.api.nvim_create_autocmd("User", {
-    pattern = "RoslynRestoreProgress",
-    callback = function(ev)
-      print(vim.inspect(ev))
-    end,
+	pattern = "RoslynRestoreProgress",
+	callback = function(ev)
+		print(vim.inspect(ev))
+	end,
 })
 
 -- Configure lua_ls using the new built-in vim.lsp API (Neovim 0.11+)

@@ -21,14 +21,13 @@ vim.pack.add({
 	"https://github.com/hrsh7th/cmp-buffer",
 	"https://github.com/hrsh7th/cmp-path",
 	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/max397574/better-escape.nvim",
 	"https://github.com/sindrets/diffview.nvim",
 	"https://github.com/mfussenegger/nvim-dap",
 	"https://github.com/igorlfs/nvim-dap-view",
 	"https://github.com/theHamsta/nvim-dap-virtual-text",
 	"https://github.com/GustavEikaas/easy-dotnet.nvim",
-	"https://github.com/nvim-telescope/telescope.nvim",
-	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 	"https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/stevearc/conform.nvim",
@@ -45,7 +44,6 @@ vim.pack.add({
 	"https://github.com/christoomey/vim-tmux-navigator",
 	"https://github.com/coder/claudecode.nvim",
 	"https://github.com/folke/persistence.nvim",
-	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
 	"https://github.com/mfussenegger/nvim-lint",
 	"https://github.com/nvim-mini/mini.icons",
 	"https://github.com/goolord/alpha-nvim",
@@ -53,21 +51,25 @@ vim.pack.add({
 	"https://github.com/folke/noice.nvim",
 	"https://github.com/nvimdev/dashboard-nvim",
 	"https://github.com/m00qek/baleia.nvim",
-	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
+	-- "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+	"https://github.com/OXY2DEV/markview.nvim",
 	"https://github.com/iamcco/markdown-preview.nvim",
 	"https://github.com/mistricky/codesnap.nvim",
 	"https://github.com/ahmedkhalf/project.nvim",
-  "https://github.com/windwp/nvim-ts-autotag",
-  "https://github.com/folke/todo-comments.nvim",
-  "https://github.com/folke/flash.nvim",
+	"https://github.com/windwp/nvim-ts-autotag",
+	"https://github.com/folke/todo-comments.nvim",
+	"https://github.com/folke/flash.nvim",
+	"https://github.com/kevinhwang91/nvim-ufo",
+	"https://github.com/kevinhwang91/promise-async",
 	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("4.x") },
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
 
 require("config.options")
-require("config.ui")
+require("plugins.catppuccin")
 require("config.keymaps")
 require("config.lsp")
+require("config.ui")
 require("plugins.snacks")
 require("plugins.mason")
 require("plugins.neo-tree")
@@ -76,12 +78,10 @@ require("plugins.nvim-cmp")
 require("plugins.better-escape")
 require("plugins.diff-view")
 require("plugins.dap")
-require("plugins.telescope")
 require("plugins.dotnet")
 require("plugins.diagnostics")
 require("plugins.conform")
 require("plugins.treesitter")
-require("plugins.catppucin")
 require("plugins.overseer")
 require("plugins.trouble")
 require("plugins.session")
@@ -92,4 +92,5 @@ require("plugins.lint")
 require("plugins.markdown")
 require("plugins.codesnap")
 require("plugins.flash")
+require("plugins.ufo")
 require("config.notes").setup()

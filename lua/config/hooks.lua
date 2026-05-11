@@ -1,10 +1,6 @@
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
-		local name, path = ev.data.spec.name, ev.data.path
-		if name == "telescope-fzf-native.nvim" then
-			vim.system({ "make" }, { cwd = path }):wait()
-		end
-    print(vim.inspect(ev))
+		local name = ev.data.spec.name
 		if name == "markdown-preview.nvim" then
 			vim.fn["mkdp#util#install"]()
 		end
