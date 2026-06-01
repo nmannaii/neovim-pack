@@ -3,7 +3,7 @@ require("which-key").setup({
 	preset = "helix",
 })
 
-local job_indicator = { require("easy-dotnet.ui-modules.jobs").lualine }
+local dotnet = require("easy-dotnet")
 
 require("lualine").setup({
 	options = {
@@ -39,16 +39,29 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode", job_indicator },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_a = { "mode", dotnet.lualine.jobs },
+		lualine_b = {
+			{
+				"branch",
+				fmt = function(str)
+					-- If branch name is longer than 15 chars, truncate it
+					if #str > 15 then
+						return str:sub(1, 12) .. "..."
+					end
+					return str
+				end,
+			},
+			"diff",
+			"diagnostics",
+		},
 		lualine_c = { "filename" },
 		lualine_x = {
+			dotnet.lualine.active_project,
 			"encoding",
 			"fileformat",
 			"filetype",
 			{
 				"overseer",
-				label = "Tasks: ", -- This is the label prefix
 				colored = true, -- Use colors for different statuses
 				symbols = {
 					[require("overseer").STATUS.FAILURE] = ":",

@@ -3,6 +3,7 @@ vim.cmd("packadd nvim.difftool")
 require('vim._core.ui2').enable({})
 
 local opt = vim.opt
+
 -- views can only be fully collapsed with the global statusline
 opt.laststatus = 3
 -- Default splitting will cause your main splits to jump when opening an edgebar.
@@ -10,7 +11,7 @@ opt.laststatus = 3
 opt.splitkeep = "screen"
 -- UI
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.signcolumn = "yes"
 opt.cursorline = true
 opt.termguicolors = true
@@ -69,7 +70,11 @@ opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "glob
 vim.g.markdown_recommended_style = 0
 -- use Neovim nightly branch
 vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:'
-
+-- Enable conceal
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nvc"
+-- Hide trailing carriage return (\r)
+vim.cmd([[syntax match HiddenCR /\r$/ conceal]])
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "nvim-pack",

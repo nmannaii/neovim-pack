@@ -48,13 +48,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("User", {
-	pattern = "RoslynRestoreProgress",
-	callback = function(ev)
-		print(vim.inspect(ev))
-	end,
-})
-
 -- Configure lua_ls using the new built-in vim.lsp API (Neovim 0.11+)
 vim.lsp.config("lua_ls", {
 	cmd = { "lua-language-server" },

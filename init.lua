@@ -13,7 +13,6 @@ vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/MunifTanjim/nui.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
-
 	"https://github.com/akinsho/bufferline.nvim",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/hrsh7th/nvim-cmp",
@@ -61,6 +60,8 @@ vim.pack.add({
 	"https://github.com/folke/flash.nvim",
 	"https://github.com/kevinhwang91/nvim-ufo",
 	"https://github.com/kevinhwang91/promise-async",
+	"https://github.com/MagicDuck/grug-far.nvim",
+	{ src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("3.x") },
 	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("4.x") },
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 })
@@ -93,4 +94,6 @@ require("plugins.markdown")
 require("plugins.codesnap")
 require("plugins.flash")
 require("plugins.ufo")
+require("plugins.grug-far")
+require("plugins.obsidian")
 require("config.notes").setup()

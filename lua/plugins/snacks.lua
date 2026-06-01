@@ -10,7 +10,7 @@ end
 
 require("snacks").setup({
 	explorer = { enabled = true },
-	picker = { enabled = true },
+	picker = { enabled = true, ui_select = true },
 	indent = { enabled = true },
 	notifier = { enabled = true },
 	statuscolumn = { enabled = true },
@@ -41,7 +41,6 @@ map({ 'n', 'x' }, '<leader>sw', function() Snacks.picker.grep_word() end, { desc
 map('n', '<leader>/', function() Snacks.picker.grep() end, { desc = '[S]earch by [G]rep' })
 map('n', '<leader>fp', function() Snacks.picker.projects() end, { desc = '[S]earch [P]rojects' })
 map('n', '<leader>sd', function() Snacks.picker.diagnostics() end, { desc = '[S]earch [D]iagnostics' })
-map('n', '<leader>sr', function() Snacks.picker.resume() end, { desc = '[S]earch [R]esume' })
 map('n', '<leader>s.', function() Snacks.picker.recent() end, { desc = '[S]earch Recent Files ("." for repeat)' })
 map('n', '<leader><leader>', function() Snacks.picker.buffers() end, { desc = '[ ] Find existing buffers' })
 map('n', '<leader>sl', function() Snacks.picker.lines {} end, { desc = '[/] Fuzzily search in current buffer' })

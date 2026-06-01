@@ -7,7 +7,7 @@
 -- })
 
 local presets = require("markview.presets").headings
-require("markview").setup()
+require("markview").setup({})
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "markdown",
